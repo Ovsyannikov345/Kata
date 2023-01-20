@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[4kyu]Unflatten a list (Harder than easy)", "[4kyu]Unflatten a list (Harder than easy)\[4kyu]Unflatten a list (Harder than easy).csproj", "{D5C63C53-6592-40E9-B7D9-D72F74551310}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5C63C53-6592-40E9-B7D9-D72F74551310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C63C53-6592-40E9-B7D9-D72F74551310}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C63C53-6592-40E9-B7D9-D72F74551310}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C63C53-6592-40E9-B7D9-D72F74551310}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9DF358CE-8AA5-4178-B25E-63E79E624F10}
+	EndGlobalSection
+EndGlobal

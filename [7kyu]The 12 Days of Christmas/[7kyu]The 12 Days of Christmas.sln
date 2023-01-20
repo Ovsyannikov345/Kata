@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[7kyu]The 12 Days of Christmas", "[7kyu]The 12 Days of Christmas\[7kyu]The 12 Days of Christmas.csproj", "{8C8A1243-1A7A-4693-8542-FE2856F80E0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C8A1243-1A7A-4693-8542-FE2856F80E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C8A1243-1A7A-4693-8542-FE2856F80E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C8A1243-1A7A-4693-8542-FE2856F80E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C8A1243-1A7A-4693-8542-FE2856F80E0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7180CB99-AE51-44E3-9FCF-7643EBF88C09}
+	EndGlobalSection
+EndGlobal

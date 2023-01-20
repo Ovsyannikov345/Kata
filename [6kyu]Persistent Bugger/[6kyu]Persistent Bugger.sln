@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[6kyu]Persistent Bugger", "[6kyu]Persistent Bugger\[6kyu]Persistent Bugger.csproj", "{2AB65BE4-32E1-461D-A7EF-BB151F6A4DC8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AB65BE4-32E1-461D-A7EF-BB151F6A4DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB65BE4-32E1-461D-A7EF-BB151F6A4DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB65BE4-32E1-461D-A7EF-BB151F6A4DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB65BE4-32E1-461D-A7EF-BB151F6A4DC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D738546E-22A8-4528-A61F-A4222D1D60CB}
+	EndGlobalSection
+EndGlobal

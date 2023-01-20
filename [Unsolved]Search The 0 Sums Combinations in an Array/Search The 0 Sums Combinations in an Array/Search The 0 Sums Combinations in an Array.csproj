@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Search_The_0_Sums_Combinations_in_an_Array</RootNamespace>
+  </PropertyGroup>
+
+</Project>

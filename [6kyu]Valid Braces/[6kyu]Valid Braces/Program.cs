@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace _6kyu_Valid_Braces
 {
@@ -6,7 +7,7 @@ namespace _6kyu_Valid_Braces
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Brace.validBraces("()[]{}");
         }
     }
 }
@@ -15,47 +16,25 @@ public class Brace
 {
     public static bool validBraces(string braces)
     {
-        int parenthesesCount = 0;
-
-        int bracketsCount = 0;
-
-        int curlyBracesCount = 0;
+        Stack<char> bracesOrder = new Stack<char>();
 
         foreach (var symbol in braces)
         {
             switch (symbol)
             {
                 case '(':
-                    parenthesesCount++;
-                    break;
                 case '[':
-                    bracketsCount++;
-                    break;
                 case '{':
-                    curlyBracesCount++;
+                    bracesOrder.Push(symbol);
                     break;
                 case ')':
-                    parenthesesCount--;
-
-                    if (parenthesesCount < 0)
-                    {
-                        return false;
-                    }
-
-                    break;
                 case ']':
-                    bracketsCount--;
-
-                    if (bracketsCount < 0)
-                    {
-                        return false;
-                    }
-
-                    break;
                 case '}':
-                    curlyBracesCount--;
-
-                    if (curlyBracesCount < 0)
+                    if (bracesOrder.Count > 0 && CompareBraces(bracesOrder.Peek(), symbol))
+                    {
+                        bracesOrder.Pop();
+                    }
+                    else
                     {
                         return false;
                     }
@@ -64,6 +43,36 @@ public class Brace
             }
         }
 
-        return parenthesesCount == 0 && bracketsCount == 0 && curlyBracesCount == 0;
+        return bracesOrder.Count == 0;
+    }
+
+    private static bool CompareBraces(char firstBrace, char secondBrace)
+    {
+        switch (firstBrace)
+        {
+            case '(':
+                if (secondBrace == ')')
+                {
+                    return true;
+                }
+
+                break;
+            case '[':
+                if (secondBrace == ']')
+                {
+                    return true;
+                }
+
+                break;
+            case '{':
+                if (secondBrace == '}')
+                {
+                    return true;
+                }
+
+                break;
+        }
+
+        return false;
     }
 }

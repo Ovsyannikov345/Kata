@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[5kyu]Directions Reduction", "[5kyu]Directions Reduction\[5kyu]Directions Reduction.csproj", "{E57FF0D0-4B72-4F1F-BEC4-4347FD9921A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E57FF0D0-4B72-4F1F-BEC4-4347FD9921A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E57FF0D0-4B72-4F1F-BEC4-4347FD9921A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E57FF0D0-4B72-4F1F-BEC4-4347FD9921A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E57FF0D0-4B72-4F1F-BEC4-4347FD9921A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9FDDE4F-F048-47E6-BC6E-827C41FF8403}
+	EndGlobalSection
+EndGlobal

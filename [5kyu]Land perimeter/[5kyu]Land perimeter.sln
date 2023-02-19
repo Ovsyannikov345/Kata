@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[5kyu]Land perimeter", "[5kyu]Land perimeter\[5kyu]Land perimeter.csproj", "{DA3F8231-585D-4F0D-82D2-098B6D6244FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA3F8231-585D-4F0D-82D2-098B6D6244FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA3F8231-585D-4F0D-82D2-098B6D6244FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA3F8231-585D-4F0D-82D2-098B6D6244FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA3F8231-585D-4F0D-82D2-098B6D6244FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77986C0C-9B8D-49B0-B7DB-81E42AAD2C36}
+	EndGlobalSection
+EndGlobal

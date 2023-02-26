@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[4kyu]Bird Mountain - the river", "[4kyu]Bird Mountain - the river\[4kyu]Bird Mountain - the river.csproj", "{8B450577-C68F-4FEB-BC3C-02F4326553CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B450577-C68F-4FEB-BC3C-02F4326553CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B450577-C68F-4FEB-BC3C-02F4326553CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B450577-C68F-4FEB-BC3C-02F4326553CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B450577-C68F-4FEB-BC3C-02F4326553CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2ECC95B3-6FA6-4276-86EB-CD2C1A71B8A8}
+	EndGlobalSection
+EndGlobal

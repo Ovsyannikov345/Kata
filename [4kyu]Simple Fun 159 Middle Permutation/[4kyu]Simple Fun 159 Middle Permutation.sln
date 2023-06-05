@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[4kyu]Simple Fun 159 Middle Permutation", "[4kyu]Simple Fun 159 Middle Permutation\[4kyu]Simple Fun 159 Middle Permutation.csproj", "{6A963632-5AC2-4C19-B6CD-56B8AFAA63FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A963632-5AC2-4C19-B6CD-56B8AFAA63FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A963632-5AC2-4C19-B6CD-56B8AFAA63FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A963632-5AC2-4C19-B6CD-56B8AFAA63FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A963632-5AC2-4C19-B6CD-56B8AFAA63FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DD99B62-4F40-412D-9BE4-43BFF4AA1FC1}
+	EndGlobalSection
+EndGlobal

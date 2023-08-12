@@ -1,4 +1,5 @@
-﻿public interface IOnBoardComputer
+﻿#pragma warning disable S3903 // Types should be defined in named namespaces
+public interface IOnBoardComputer
 {
     int TripRealTime { get; }
 

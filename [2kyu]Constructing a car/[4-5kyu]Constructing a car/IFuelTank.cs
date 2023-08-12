@@ -1,4 +1,5 @@
-﻿public interface IFuelTank
+﻿#pragma warning disable S3903 // Types should be defined in named namespaces
+public interface IFuelTank
 {
     double FillLevel { get; }
 

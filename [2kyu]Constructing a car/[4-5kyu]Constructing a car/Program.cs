@@ -2,20 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 
-//public static class Program
-//{
-//    static void Main()
-//    {
-//        Car car = new Car(20, 10);
+#pragma warning disable S3903 // Types should be defined in named namespaces
 
-//        car.EngineStart();
-//        car.Accelerate(10);
-//        car.Accelerate(10);
-//        car.Accelerate(10);
-//        car.Accelerate(10);
-//        Console.WriteLine(car.drivingInformationDisplay.ActualSpeed);
-//    }
-//}
+public static class Program
+{
+    static void Main()
+    {
+        var car = new Car();
+
+        car.EngineStart();
+
+        car.Accelerate(30);
+        car.Accelerate(30);
+        car.Accelerate(30);
+
+        double a = double.NaN;
+
+        a = 0;
+        a += 4;
+
+        Console.WriteLine(a);
+    }
+}
 
 public class Car : ICar
 {
@@ -23,7 +31,7 @@ public class Car : ICar
 
     public readonly IDrivingInformationDisplay drivingInformationDisplay;
 
-    public  readonly IOnBoardComputerDisplay onBoardComputerDisplay;
+    public readonly IOnBoardComputerDisplay onBoardComputerDisplay;
 
     private readonly IEngine engine;
 
@@ -44,7 +52,7 @@ public class Car : ICar
 
     public Car(double fuelLevel) : this(fuelLevel, defaultAcceleration)
     {
-        
+
     }
 
     public Car(double fuelLevel, int maxAcceleration)
@@ -54,7 +62,7 @@ public class Car : ICar
         fuelTankDisplay = new FuelTankDisplay(fuelTank);
         drivingProcessor = new DrivingProcessor(maxAcceleration);
         drivingInformationDisplay = new DrivingInformationDisplay(drivingProcessor);
-        onBoardComputer = new OnBoardComputer();
+        onBoardComputer = new OnBoardComputer(drivingProcessor);
         onBoardComputerDisplay = new OnBoardComputerDisplay(onBoardComputer);
     }
 
@@ -63,11 +71,15 @@ public class Car : ICar
     public void EngineStart()
     {
         engine.Start();
+        onBoardComputer.TripReset();
+        onBoardComputer.ElapseSecond();
     }
 
     public void EngineStop()
     {
         engine.Stop();
+        onBoardComputer.ElapseSecond();
+        drivingProcessor.EngineStop();
     }
 
     public void Refuel(double liters)
@@ -86,11 +98,16 @@ public class Car : ICar
         {
             engine.Consume(drivingProcessor.ActualConsumption);
         }
+
+        drivingProcessor.EngineStart();
+
+        onBoardComputer.ElapseSecond();
     }
 
     public void BrakeBy(int speed)
     {
         drivingProcessor.ReduceSpeed(speed);
+        onBoardComputer.ElapseSecond();
     }
 
     public void Accelerate(int speed)
@@ -99,8 +116,10 @@ public class Car : ICar
         {
             drivingProcessor.IncreaseSpeedTo(speed);
 
-            engine.Consume(CalculateConsumption(drivingProcessor.ActualSpeed));
+            engine.Consume(DrivingProcessor.CalculateConsumption(drivingProcessor.ActualSpeed));
         }
+
+        onBoardComputer.ElapseSecond();
     }
 
     public void FreeWheel()
@@ -111,6 +130,9 @@ public class Car : ICar
         }
 
         drivingProcessor.ReduceSpeed(1);
+        drivingProcessor.EngineStop();
+
+        onBoardComputer.ElapseSecond();
     }
 }
 
@@ -162,7 +184,7 @@ public class DrivingProcessor : IDrivingProcessor
 
     private const int maxBreaking = 10;
 
-    private readonly Dictionary<int, double> consumptions = new Dictionary<int, double>()
+    private static readonly Dictionary<int, double> consumptions = new Dictionary<int, double>()
     {
         {0, 0.0003 },
         { 60, 0.0020 },
@@ -174,11 +196,12 @@ public class DrivingProcessor : IDrivingProcessor
 
     public int ActualSpeed { get; private set; }
 
-    public double ActualConsumption => CalculateConsumption(ActualSpeed);
+    public double ActualConsumption { get; private set; }
 
     public DrivingProcessor(int maxAcceleration)
     {
         ActualSpeed = minSpeed;
+        ActualConsumption = 0.0;
 
         if (maxAcceleration > 20)
         {
@@ -216,6 +239,8 @@ public class DrivingProcessor : IDrivingProcessor
         {
             ActualSpeed = speed;
         }
+
+        ActualConsumption = CalculateConsumption(ActualSpeed);
     }
 
     public void ReduceSpeed(int speed)
@@ -238,21 +263,23 @@ public class DrivingProcessor : IDrivingProcessor
         {
             ActualSpeed -= speed;
         }
+
+        ActualConsumption = CalculateConsumption(ActualSpeed);
     }
 
-    public double CalculateConsumption(int speed)
+    public static double CalculateConsumption(int speed)
     {
         return consumptions.First(x => x.Key >= speed).Value;
     }
 
     public void EngineStart()
     {
-        throw new NotImplementedException();
+        ActualConsumption = CalculateConsumption(ActualSpeed);
     }
 
     public void EngineStop()
     {
-        throw new NotImplementedException();
+        ActualConsumption = 0.0;
     }
 }
 
@@ -321,39 +348,64 @@ public class FuelTank : IFuelTank
 
 public class OnBoardComputer : IOnBoardComputer
 {
-    private IDrivingProcessor drivingProcessor;
+    private readonly IDrivingProcessor drivingProcessor;
+
+    private double TripConsumptionByTimeSum = 0.0;
+
+    private double TotalConsumptionByTimeSum = 0.0;
+
+    private double TripConsumptionByDistanceSum = 0.0;
+
+    private double TotalConsumptionByDistanceSum = 0.0;
 
     public int TripRealTime { get; private set; } = 0;
 
-    public int TripDrivingTime { get; private set; } = 0;
-
-    public int TripDrivenDistance { get; private set; } = 0;
-
     public int TotalRealTime { get; private set; } = 0;
+
+    public int TripDrivingTime { get; private set; } = 0;
 
     public int TotalDrivingTime { get; private set; } = 0;
 
-    public int TotalDrivenDistance { get; private set; } = 0;
+    public double TripDistanceInMeters { get; private set; } = 0.0;
 
-    public double TripAverageSpeed => TripDrivenDistance / TripDrivingTime;
+    public double TotalDistanceInMeters { get; private set; } = 0.0;
 
-    public double TotalAverageSpeed => TotalDrivenDistance / TotalDrivingTime;
+    public int TripDrivenDistance => (int)(TripDistanceInMeters / 1000);
+
+    public int TotalDrivenDistance => (int)(TotalDistanceInMeters / 1000);
+
+    public double TripAverageSpeed => Math.Round((double)TripDrivenDistance / TripDrivingTime, 1);
+
+    public double TotalAverageSpeed => Math.Round((double)TotalDrivenDistance / TotalDrivingTime, 1);
 
     public int ActualSpeed => drivingProcessor.ActualSpeed;
 
-    public double ActualConsumptionByTime { get; private set; }
+    public double ActualConsumptionByTime => drivingProcessor.ActualConsumption;
 
-    public double ActualConsumptionByDistance { get; private set; }
+    public double ActualConsumptionByDistance
+    {
+        get
+        {
+            if (ActualSpeed > 0)
+            {
+                return Math.Round(drivingProcessor.ActualConsumption * 360000 / ActualSpeed, 1);
+            }
+            else
+            {
+                return double.NaN;
+            }
+        }
+    }
 
-    public double TripAverageConsumptionByTime { get; private set; }
+    public double TripAverageConsumptionByTime => Math.Round(TripConsumptionByTimeSum / TripRealTime, 5);
 
-    public double TotalAverageConsumptionByTime { get; private set; }
+    public double TotalAverageConsumptionByTime => Math.Round(TotalConsumptionByTimeSum / TotalRealTime, 5);
 
-    public double TripAverageConsumptionByDistance { get; private set; }
+    public double TripAverageConsumptionByDistance => Math.Round(TripConsumptionByDistanceSum / TripDrivingTime, 1);
 
-    public double TotalAverageConsumptionByDistance { get; private set; }
+    public double TotalAverageConsumptionByDistance => Math.Round(TotalConsumptionByDistanceSum / TotalDrivingTime, 1);
 
-    public int EstimatedRange { get; private set; }
+    public int EstimatedRange => 0;
 
     public OnBoardComputer(IDrivingProcessor drivingProcessor)
     {
@@ -371,20 +423,33 @@ public class OnBoardComputer : IOnBoardComputer
             TotalDrivingTime++;
         }
 
-        TripDrivenDistance += (int)(drivingProcessor.ActualSpeed / 3.6);
-        TotalDrivenDistance += (int)(drivingProcessor.ActualSpeed / 3.6);
+        TripDistanceInMeters += drivingProcessor.ActualSpeed / 3.6;
+        TotalDistanceInMeters += drivingProcessor.ActualSpeed / 3.6;
 
-        
+        TripConsumptionByTimeSum += ActualConsumptionByTime;
+        TotalConsumptionByTimeSum += ActualConsumptionByTime;
+
+        TripConsumptionByDistanceSum += ActualConsumptionByDistance;
+        TotalConsumptionByDistanceSum += ActualConsumptionByDistance;
     }
 
     public void TotalReset()
     {
-        throw new NotImplementedException();
+        TripReset();
+        TotalConsumptionByTimeSum = 0.0;
+        TotalConsumptionByDistanceSum = 0.0;
+        TotalRealTime = 0;
+        TotalDrivingTime = 0;
+        TotalDistanceInMeters = 0.0;
     }
 
     public void TripReset()
     {
-        throw new NotImplementedException();
+        TripConsumptionByTimeSum = 0.0;
+        TripConsumptionByDistanceSum = 0.0;
+        TripRealTime = 0;
+        TripDrivingTime = 0;
+        TripDistanceInMeters = 0.0;
     }
 }
 
@@ -421,15 +486,15 @@ public class OnBoardComputerDisplay : IOnBoardComputerDisplay
 
     public int TripRealTime => onBoardComputer.TripRealTime;
 
-    public int TripDrivingTime => onBoardComputer.TripDrivingTime;
-
-    public double TripDrivenDistance => onBoardComputer.TripDrivenDistance;
-
     public int TotalRealTime => onBoardComputer.TotalRealTime;
+
+    public int TripDrivingTime => onBoardComputer.TripDrivingTime;
 
     public int TotalDrivingTime => onBoardComputer.TotalDrivingTime;
 
-    public double TotalDrivenDistance => 
+    public double TripDrivenDistance => Math.Round(onBoardComputer.TripDrivenDistance / 1000.0, 2);
+
+    public double TotalDrivenDistance => Math.Round(onBoardComputer.TotalDrivenDistance / 1000.0, 2);
 
     public int ActualSpeed => onBoardComputer.ActualSpeed;
 

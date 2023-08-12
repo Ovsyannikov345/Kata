@@ -1,4 +1,5 @@
-﻿public interface ICar
+﻿#pragma warning disable S3903 // Types should be defined in named namespaces
+public interface ICar
 {
     bool EngineIsRunning { get; }
 

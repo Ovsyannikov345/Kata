@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[8kyu]Remove duplicates fro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[7kyu]Remove anchor from URL", "[7kyu]Remove anchor from URL\[7kyu]Remove anchor from URL.csproj", "{FA5FB984-45F6-4045-AE5E-950D90ED48DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[6kyu]Min Factor Distance", "[6kyu]Min Factor Distance\[6kyu]Min Factor Distance.csproj", "{C2ADA90F-F846-49C3-B593-7707B4844849}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{FA5FB984-45F6-4045-AE5E-950D90ED48DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA5FB984-45F6-4045-AE5E-950D90ED48DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA5FB984-45F6-4045-AE5E-950D90ED48DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2ADA90F-F846-49C3-B593-7707B4844849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2ADA90F-F846-49C3-B593-7707B4844849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2ADA90F-F846-49C3-B593-7707B4844849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2ADA90F-F846-49C3-B593-7707B4844849}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

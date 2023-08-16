@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[5kyu]Simple Pig Latin", "[5kyu]Simple Pig Latin\[5kyu]Simple Pig Latin.csproj", "{03128899-0AD1-4820-B887-C059366D8310}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03128899-0AD1-4820-B887-C059366D8310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03128899-0AD1-4820-B887-C059366D8310}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03128899-0AD1-4820-B887-C059366D8310}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03128899-0AD1-4820-B887-C059366D8310}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1A85175-5184-45B4-B8CA-9018A4A3954C}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[5kyu]Human Readable Time", "[5kyu]Human Readable Time\[5kyu]Human Readable Time.csproj", "{86761FF4-13D1-491B-A18F-7C1DFF748377}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86761FF4-13D1-491B-A18F-7C1DFF748377}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86761FF4-13D1-491B-A18F-7C1DFF748377}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86761FF4-13D1-491B-A18F-7C1DFF748377}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86761FF4-13D1-491B-A18F-7C1DFF748377}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD570037-113C-4F17-8043-45E828577453}
+	EndGlobalSection
+EndGlobal
